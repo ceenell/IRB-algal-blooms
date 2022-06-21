@@ -39,12 +39,11 @@ vignettes/*.pdf
 # R Environment Variables
 .Renviron
 
-# scipiper files
+# targets files
 */tmp/*
 */out/*
-!*/out/*.ind
-.remake
-build/
+!*/out/*.placeholder
+_targets/*
 
 .DS_Store
 node_modules

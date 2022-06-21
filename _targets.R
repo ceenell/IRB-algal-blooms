@@ -1,0 +1,28 @@
+# Main recipe file for orchestrating the full data pipeline build
+
+library(targets)
+
+options(tidyverse.quiet = TRUE)
+tar_option_set(packages = c('sbtools', 'tidyverse'))
+
+source('data-pipeline/1_fetch.R')
+source('data-pipeline/2_process.R')
+
+# ScienceBase item id for the data release containing already cleaned and
+# harmonized HABS-related water quality data in the ILRB. To be released in July 2022.
+# See https://www.sciencebase.gov/catalog/item/62abf202d34e74f0d80eb611
+wq_data_sbid <- '62abf202d34e74f0d80eb611'
+
+# Based on the parameter groups defined in the `pcode_groups_xwalk.csv` file
+# from the data release at
+wq_parameter_groups <- c('chl_a', 'fPC', 'fchl', 'do', 'pH')
+
+# Define site numbers that we want to use. Must be sites already available in
+# the `site_metadata.csv` file from the SB item
+sites_to_explore <- c(
+  "05543010", # Seneca
+  "05558300", # Henry; bloom dates: 2021-06-18, 2020-06-25
+  "05553700" # Starved Rock; bloom dates: 2021-06-18, 2020-06-25, and 2018-06-25
+)
+
+c(p1_targets_list, p2_targets_list)
