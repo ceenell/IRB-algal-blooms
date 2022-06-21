@@ -29,3 +29,10 @@ c(p1_targets_list, p2_targets_list)
 # Define the start and end dates of interest
 start_date <- '2020-06-15'
 end_date <- '2020-07-05'
+
+##### SB AUTHENTICATION #####
+# TODO: DELETE ME. Currently, this SB item is internal only.
+# Soon, it will be published, so this step will not be necessary
+sb_secret <- dssecrets::get_dssecret('vizlab-sb-srvc-acct')
+sbtools::authenticate_sb(sb_secret$username, sb_secret$password)
+##### ^^^ DELETE ME ^^^ #####
