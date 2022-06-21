@@ -3,10 +3,11 @@
 library(targets)
 
 options(tidyverse.quiet = TRUE)
-tar_option_set(packages = c('sbtools', 'tidyverse'))
+tar_option_set(packages = c('ggdist', 'sbtools', 'tidyverse'))
 
 source('data-pipeline/1_fetch.R')
 source('data-pipeline/2_process.R')
+source('data-pipeline/3_visualize.R')
 
 # ScienceBase item id for the data release containing already cleaned and
 # harmonized HABS-related water quality data in the ILRB. To be released in July 2022.
@@ -25,7 +26,6 @@ sites_to_explore <- c(
   "05553700" # Starved Rock; bloom dates: 2021-06-18, 2020-06-25, and 2018-06-25
 )
 
-c(p1_targets_list, p2_targets_list)
 # Define the start and end dates of interest
 start_date <- '2020-06-15'
 end_date <- '2020-07-05'
@@ -36,3 +36,5 @@ end_date <- '2020-07-05'
 sb_secret <- dssecrets::get_dssecret('vizlab-sb-srvc-acct')
 sbtools::authenticate_sb(sb_secret$username, sb_secret$password)
 ##### ^^^ DELETE ME ^^^ #####
+
+c(p1_targets_list, p2_targets_list, p3_targets_list)
