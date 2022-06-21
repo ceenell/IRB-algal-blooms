@@ -10,6 +10,13 @@ p1_targets_list <- list(
                sb_file_to_download = sprintf('data_%s_combined.csv', p1_param_grps),
                sb_id = wq_data_sbid),
              format = "file",
-             pattern = map(p1_param_grps))
+             pattern = map(p1_param_grps)),
+
+  tar_target(p1_site_metadata_downloaded_csv,
+             download_sb_file(
+               local_file_to_save = "data-pipeline/1_fetch/out/site_metadata.csv",
+               sb_file_to_download = "site_metadata.csv",
+               sb_id = wq_data_sbid),
+             format = "file")
 
 )
