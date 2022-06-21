@@ -40,9 +40,9 @@ vignettes/*.pdf
 .Renviron
 
 # targets files
-*/tmp/*
-*/out/*
-!*/out/*.placeholder
+data-pipeline/*/tmp/*
+data-pipeline/*/out/*
+!data-pipeline/*/out/*.placeholder
 _targets/*
 
 .DS_Store
@@ -74,5 +74,4 @@ public/*.csv
 # Data files
 *xlsx
 out/water_volume_logpile.csv
-_targets/
 Images/*
