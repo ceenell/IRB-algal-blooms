@@ -26,3 +26,6 @@ sites_to_explore <- c(
 )
 
 c(p1_targets_list, p2_targets_list)
+# Define the start and end dates of interest
+start_date <- '2020-06-15'
+end_date <- '2020-07-05'
