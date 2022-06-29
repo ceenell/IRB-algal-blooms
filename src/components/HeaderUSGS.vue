@@ -14,7 +14,7 @@
         >
           <img
             class="img"
-            src="@/assets/usgsHeaderAndFooter/images/usgsvizlab-logo-wordmark-black.png"
+            src="@/assets/usgsHeaderAndFooter/images/usgsLogo.png"
             alt="Home"
           >
         </a>

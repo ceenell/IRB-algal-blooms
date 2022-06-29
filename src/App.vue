@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <!-- <WindowSize v-if="checkTypeOfEnv === '-test build-'" /> -->
+    <WindowSize v-if="checkTypeOfEnv === '-test build-'" />
     <HeaderUSGS />
     <InternetExplorerPage v-if="isInternetExplorer" />
     <!-- an empty string in this case means the 'prod' version of the application   -->
@@ -13,17 +13,15 @@
 </template>
 
 <script>
-    // import WindowSize from "./components/WindowSize";
+    import WindowSize from "./components/WindowSize";
     import HeaderUSGS from './components/HeaderUSGS';
     import { isMobile } from 'mobile-device-detect';
     export default {
         name: 'App',
         components: {
-            // WindowSize,
+            WindowSize,
             HeaderUSGS,
             InternetExplorerPage: () => import( /* webpackPrefetch: true */ /*webpackChunkName: "internet-explorer-page"*/ "./components/InternetExplorerPage"),
-            //WorkInProgressWarning: () => import( /* webpackPrefetch: true */ /*webpackChunkName: "work-in-progress-warning"*/ "./components/WorkInProgressWarning"),
-            //PreFooterVisualizationsLinks: () => import( /* webpackPrefetch: true */ /*webpackChunkName: "pre-footer-links-visualizations"*/ "./components/PreFooterVisualizationsLinks"),
             PreFooterCodeLinks: () => import( /* webpackPrefetch: true */ /*webpackChunkName: "pre-footer-links-code"*/ "./components/PreFooterCodeLinks"),
             FooterUSGS: () => import( /* webpackPrefetch: true */ /*webpackChunkName: "usgs-footer"*/ "./components/FooterUSGS") // Have Webpack put the footer in a separate chunk so we can load it conditionally (with a v-if) if we desire
         },
@@ -41,7 +39,7 @@
           }
         },
         created() {
-            // We are ending support for Internet Explorer, so let's test to see if the browser used is IE.
+            // We do not support for Internet Explorer. This tests if the browser used is IE.
             this.$browserDetect.isIE ? this.isInternetExplorer = true : this.isInternetExplorer = false;
             // Add window size tracking by adding a listener and a way to store the values in the Vuex state
             window.addEventListener('resize', this.handleResize);
@@ -61,10 +59,8 @@
 
 <style lang="scss">
 // Fonts
-@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;700;900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Assistant:wght@200;300;400;500;600;700;800&display=swap');
-$Cairo: 'Cairo', sans-serif;
-$Assistant: 'Assistant', sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;300;400;500;600;700;800&display=swap');
+$SourceSans: 'Source Sans Pro', sans-serif;
 
 // Type
 html,
@@ -86,7 +82,7 @@ body {
 h1{
   font-size: 3.5em;
   font-weight: 300;
-  font-family: $Assistant;
+  font-family: $SourceSans;
   line-height: 1;
   text-align: left;
   text-shadow: 1px 1px 100px rgba(0,0,0,.8);
@@ -97,7 +93,7 @@ h1{
 h2{
   font-weight: 300;
   text-align: left;
-  font-family:$Assistant;
+  font-family: $SourceSans;
   font-size: 2.3em;
   margin-top: 5px;
   line-height: 1.2;
@@ -108,7 +104,7 @@ h2{
 h3{
   font-size: 1.5em;
   padding-top: .5em;
-  font-family: $Assistant;
+  font-family: $SourceSans;
   font-weight: 300;
   @media screen and (max-width: 600px) {
       font-size: 1.4em;
@@ -116,7 +112,7 @@ h3{
 }
 p, text {
   padding: 1em 0 0 0; 
-  font-family: $Assistant;
+  font-family: $SourceSans;
 }
 
 </style>
