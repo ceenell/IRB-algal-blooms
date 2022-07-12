@@ -72,6 +72,9 @@ $textcolor: #bff1e2;
 html,
 body {
       height:100%;
+      max-width: 100vw;
+      max-height: 100vh;
+      min-height: 100%;
       background-color: #0b3852;
       margin: 0;
       padding: 0;
@@ -94,7 +97,7 @@ h1{
   text-shadow: 1px 1px 100px rgba(0,0,0,.8);
     color: $textcolor;
   @media screen and (max-width: 600px) {
-    font-size: 2.5em;
+    font-size: 2.75em;
   }
 }
 h2{
@@ -106,7 +109,7 @@ h2{
   line-height: 1.2;
     color: $textcolor;
   @media screen and (max-width: 600px) {
-    font-size: 2em;
+    font-size: 2.25em;
   }
 }
 h3{
@@ -116,7 +119,7 @@ h3{
   font-weight: 300;
     color: $textcolor;
   @media screen and (max-width: 600px) {
-      font-size: 1.4em;
+      font-size: 2em;
   }  
 }
 p, text {
@@ -124,5 +127,7 @@ p, text {
   font-family: $SourceSans;
   color: $textcolor;
 }
-
+input[type=button] {
+        font-family: $SourceSans;
+    }
 </style>
