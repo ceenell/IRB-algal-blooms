@@ -1,6 +1,7 @@
 <template>
   <div id="visualization">
     <h2>Harmful algal blooms</h2>
+    <h3>in the Illinois River Basin</h3>
     <WaterQuality />
   </div>
 </template>

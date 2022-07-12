@@ -30,7 +30,10 @@
                 isInternetExplorer: false,
                 title: process.env.VUE_APP_TITLE,
                 publicPath: process.env.BASE_URL, // this is need for the data files in the public folder
-                mobileView: isMobile
+                mobileView: isMobile,
+                colors: {
+                  
+                }
             }
         },
         computed: {
@@ -59,14 +62,17 @@
 
 <style lang="scss">
 // Fonts
-@import url('https://fonts.googleapis.com/css2?family=Public+Sans:wght@200;300;400;500;600;700;800&display=swap');
-$PublicSans: 'Public Sans', sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Edu+SA+Beginner:wght@400;500;600;700&display=swap');
+$scriptFont: 'Edu SA Beginner', cursive;
+$SourceSans: 'Source Sans Pro', sans-serif;
+$textcolor: #bff1e2;
 
 // Type
 html,
 body {
       height:100%;
-      background-color: white;
+      background-color: #0b3852;
       margin: 0;
       padding: 0;
       line-height: 1.2;
@@ -81,31 +87,34 @@ body {
   }
 h1{
   font-size: 3.5em;
-  font-weight: 300;
+  font-weight: 500;
   font-family: $SourceSans;
   line-height: 1;
   text-align: left;
   text-shadow: 1px 1px 100px rgba(0,0,0,.8);
+    color: $textcolor;
   @media screen and (max-width: 600px) {
     font-size: 2.5em;
   }
 }
 h2{
-  font-weight: 300;
+  font-weight: 700;
   text-align: left;
   font-family: $SourceSans;
-  font-size: 2.3em;
+  font-size: 2.75em;
   margin-top: 5px;
   line-height: 1.2;
+    color: $textcolor;
   @media screen and (max-width: 600px) {
     font-size: 2em;
   }
 }
 h3{
-  font-size: 1.5em;
-  padding-top: .5em;
-  font-family: $SourceSans;
+  font-size: 2.25em;
+  padding-top: .25em;
+  font-family: $scriptFont;
   font-weight: 300;
+    color: $textcolor;
   @media screen and (max-width: 600px) {
       font-size: 1.4em;
   }  
@@ -113,6 +122,7 @@ h3{
 p, text {
   padding: 1em 0 0 0; 
   font-family: $SourceSans;
+  color: $textcolor;
 }
 
 </style>
