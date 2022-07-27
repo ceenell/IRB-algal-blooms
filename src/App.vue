@@ -1,14 +1,14 @@
 <template>
   <div id="app">
     <WindowSize v-if="checkTypeOfEnv === '-test build-'" />
-    <HeaderUSGS />
-    <InternetExplorerPage v-if="isInternetExplorer" />
-    <!-- an empty string in this case means the 'prod' version of the application   -->
-    <router-view
-      v-if="!isInternetExplorer"
-    />
-    <PreFooterCodeLinks v-if="!isInternetExplorer" />
-    <FooterUSGS />
+    <HeaderUSGS ref="headerUSGS" />
+      <InternetExplorerPage v-if="isInternetExplorer" />
+      <!-- an empty string in this case means the 'prod' version of the application   -->
+      <router-view
+        v-if="!isInternetExplorer"
+      />
+      <PreFooterCodeLinks v-if="!isInternetExplorer" />
+      <FooterUSGS />
   </div>
 </template>
 
@@ -31,15 +31,21 @@
                 title: process.env.VUE_APP_TITLE,
                 publicPath: process.env.BASE_URL, // this is need for the data files in the public folder
                 mobileView: isMobile,
-                colors: {
-                  
-                }
             }
         },
         computed: {
           checkTypeOfEnv() {
               return process.env.VUE_APP_TIER
+          },
+          windowWidth: function() {
+            return this.$store.state.windowWidth
+          },
+          windowHeight: function () {
+              return this.$store.state.windowHeight
           }
+        },
+        mounted(){
+          console.log(this.$store.state.windowHeight)
         },
         created() {
             // We do not support for Internet Explorer. This tests if the browser used is IE.
@@ -64,17 +70,22 @@
 // Fonts
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;300;400;500;600;700;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Edu+SA+Beginner:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Moonrocks&display=swap');
 $scriptFont: 'Edu SA Beginner', cursive;
 $SourceSans: 'Source Sans Pro', sans-serif;
 $textcolor: #bff1e2;
+$fontCurly: 'Rubik Moonrocks', cursive;
+
+// whole page except header fit within viewport - no scrolling
+#app {
+  width: 100%;
+  height: calc(100vh + 85.7px); //85.7 is the height of the USGS header
+}
 
 // Type
 html,
 body {
-      height:100%;
-      max-width: 100vw;
-      max-height: 100vh;
-      min-height: 100%;
+      height: 100%;
       background-color: #0b3852;
       margin: 0;
       padding: 0;
@@ -89,27 +100,27 @@ body {
       }
   }
 h1{
-  font-size: 3.5em;
+  font-size: 4.5em;
   font-weight: 500;
-  font-family: $SourceSans;
+  font-family: $fontCurly;
   line-height: 1;
   text-align: left;
   text-shadow: 1px 1px 100px rgba(0,0,0,.8);
     color: $textcolor;
   @media screen and (max-width: 600px) {
-    font-size: 2.75em;
+    font-size: 4.75em;
   }
 }
 h2{
   font-weight: 700;
   text-align: left;
-  font-family: $SourceSans;
-  font-size: 2.75em;
+  font-family: $fontCurly;
+  font-size: 3em;
   margin-top: 5px;
   line-height: 1.2;
     color: $textcolor;
   @media screen and (max-width: 600px) {
-    font-size: 2.25em;
+    font-size: 2.75em;
   }
 }
 h3{

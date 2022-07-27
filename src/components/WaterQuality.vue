@@ -41,6 +41,8 @@ export default {
         genus_total: null,
         genus_sample_total: null,
         step: 1,
+        nodes: null,
+        nodez: null,
 
         // dimensions
         w: store.state.windowWidth,
@@ -61,13 +63,16 @@ export default {
           .append("g")
           .attr("id", "bubble-chart")
 
+      this.step = 1;
+
     },
     methods:{
       nextStep() {
         this.step ++;
         console.log(this.step)
+        this.toSamples()
       },
-      backStep(take) {
+      backStep() {
         this.step --;
         console.log(this.step)
       },
@@ -82,8 +87,8 @@ export default {
         const self = this;
         // read in data 
         let promises = [
-        self.d3.csv(self.publicPath + "genus_total.csv",  this.d3.autotype),
-        self.d3.csv(self.publicPath + "genus_sample_total.csv",  this.d3.autotype)
+          self.d3.csv(self.publicPath + "genus_total.csv",  this.d3.autotype),
+          self.d3.csv(self.publicPath + "genus_sample_total.csv",  this.d3.autotype)
         ];
         Promise.all(promises).then(self.callback); // once it's loaded
         
@@ -93,9 +98,10 @@ export default {
         // assign data
         // builds legend, has row for each category
         this.genus_total = data[0]; 
-        //const genus_sample_total = data[1]; 
+        this.genus_sample_total = data[1]; 
         console.log(this.genus_total)
         this.bubbleAll(this.svg_chart, this.genus_total)
+        //this.toSamples(this.svg_chart, this.genus_sample_total)
       },
       bubbleAll(svg, genus_data){
           const self = this
@@ -109,55 +115,80 @@ export default {
 
           var size = this.d3.scaleLinear()
             .domain([0, 100])
-            .range([10,100])  // circle will be between 7 and 55 px wide
+            .range([10,100])  
 
-           //create a tooltip
-            var Tooltip = this.d3.select("#bloom-bubbles")
-              .append("div")
-              .style("opacity", 0)
-              .attr("class", "tooltip")
-              .style("background-color", "white")
-              .style("border", "solid")
-              .style("border-width", "2px")
-              .style("border-radius", "5px")
-              .style("padding", "5px")
-
-
-        var node = svg.selectAll("circle")
+        this.nodes = svg.selectAll("circle")
           .data(this.genus_total, function(d) { return d.taxa_name })
           .enter()
           .append("circle")
             .attr("class", "bubble")
-            .attr("r", function(d){ return (size(d.biovolume_percent)) })
+            .attr("r", function(d){ return (size(d.cells_percent)) })
             .attr("cx", this.w / 2)
             .attr("cy", this.h*0.4)
            .style("fill", function(d){ return color(d.division)})
             .style("fill-opacity", 0.8)
             .attr("stroke", "white")
             .style("stroke-width", 1.5) 
-            /* .on("mouseover",function(d) {
-              v.$emit('genusSelected', d.properties.STATE_ABBR)
-            })
-            .on('mouseout', function(d) {
-              v.$emit('genusDeselected', d.properties.STATE_ABBR)
-            }) */
-
-        // Features of the forces applied to the nodes:
+ 
         var simulation = this.d3.forceSimulation()
-            .force("center", this.d3.forceCenter().x(this.w / 2).y(this.h*0.3)) // Attraction to the center of the svg area
+            .force("charge", this.d3.forceManyBody().strength(function(d){ return d.cells_percent*0.001 }))
+            //.force("center", this.d3.forceCenter().x(this.w / 2).y(this.h*0.3)) // to the center of the svg
             .force("forceX", this.d3.forceX().strength(.1).x(this.w * .5))
             .force("forceY", this.d3.forceY().strength(.05).y(this.h * .3))
-            .force("charge", this.d3.forceManyBody().strength(0.02)) // Nodes are attracted one each other of value is > 0
-            .force("collide", this.d3.forceCollide().strength(.2).radius(function(d){ return (size(d.biovolume_percent)+3) }).iterations(2)) // Force that avoids circle overlapping
-        
+            .force("collide", this.d3.forceCollide().strength(.2).radius(function(d){ return (size(d.cells_percent)+3) }).iterations(2)) // Force that avoids circle overlapping
+        //simulation.stop();
         simulation
             .nodes(this.genus_total)
             .on("tick", function(d){
-              node
+              self.nodes
                   .attr("cx", function(d){ return d.x; })
                   .attr("cy", function(d){ return d.y; })
             });
 
+      },
+      toSamples(svg, genus_sample){
+        const self = this
+       var groups = [50, 100, 150, 200, 250, 300, 350, 400, 450, 500, 550];
+       let algae_divisions = [...new Set(genus_sample.map(function(d) { return d.division }))];
+       let sample_ids = [...new Set(genus_sample.map(function(d) { return d.sample_id }))];
+
+          var color = this.d3.scaleOrdinal()
+            .domain(algae_divisions)
+            .range([this.pal.c1, this.pal.c2, this.pal.c3, this.pal.c4, this.pal.c5, this.pal.c6, this.pal.c7, this.pal.c8, this.pal.c9]);
+
+          var size = this.d3.scaleLinear()
+            .domain([0, 100])
+            .range([10,100])  
+        
+         this.nodez = svg.selectAll("circle")
+          .data(genus_sample, function(d) { return d.taxa_name })
+          .enter()
+          .append("circle")
+            .attr("class", "bubble")
+            .attr("r", function(d){ return (size(d.cells_percent)) })
+            .attr("cx", this.w / 2)
+            .attr("cy", this.h*0.4)
+           .style("fill", function(d){ return color(d.division)})
+            .style("fill-opacity", 0.8)
+            .attr("stroke", "white")
+            .style("stroke-width", 1.5) 
+        
+       var simulation = this.d3.forceSimulation()
+          .force('charge', this.d3.forceManyBody().strength(0.15))
+          .force('x', this.d3.forceX().x(function(d,i) {
+            return groups[i];
+          }))
+          .force("forceY", this.d3.forceY().strength(.05).y(this.h * .3))
+          .force('collision', this.d3.forceCollide().radius(function(d){ return (size(d.cells_percent)+3) }).iterations(2))
+
+          simulation
+            .nodes(genus_sample)
+            .on("tick", function(d){
+              self.nodez
+                  .attr("cx", function(d){ return d.x; })
+                  .attr("cy", function(d){ return d.y; })
+            });
+          
 
       }
     }
