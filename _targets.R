@@ -3,7 +3,8 @@
 library(targets)
 
 options(tidyverse.quiet = TRUE)
-tar_option_set(packages = c('ggdist', 'sbtools', 'tidyverse'))
+tar_option_set(packages = c('ggdist', 'sbtools', 'tidyverse', 'yaml', 'sf', 
+                            'nhdplusTools', 'FedData', 'raster', 'terra'))
 
 source('data-pipeline/1_fetch.R')
 source('data-pipeline/2_process.R')
