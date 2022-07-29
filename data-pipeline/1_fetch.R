@@ -48,7 +48,7 @@ p1_targets_list <- list(
       aoi_label = 'IRB',
       nlcd_dataset = 'landcover',
       nlcd_year = years_nlcd,
-      file_name = sprintf('nlcd_%s.tif', nlcd_years),
+      file_name = sprintf('nlcd_%s.tif', years_nlcd),
       out_folder = 'data-pipeline/1_fetch/out/nlcd'
     ),
     pattern = map(years_nlcd),
@@ -61,7 +61,7 @@ p1_targets_list <- list(
       aoi_label = 'IRB',
       nlcd_dataset = 'impervious',
       nlcd_year = years_nlcd,
-      file_name = sprintf('impervious_%s.tif', nlcd_years),
+      file_name = sprintf('impervious_%s.tif', years_nlcd),
       out_folder = 'data-pipeline/1_fetch/out/nlcd'
     ),
     pattern = map(years_nlcd),

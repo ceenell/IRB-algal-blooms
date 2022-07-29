@@ -8,10 +8,10 @@ get_nlcd_aoi <- function(aoi, aoi_label = 'drb', nlcd_dataset = 'landcover',
   raster_aoi <- get_nlcd(template = aoi, label = aoi_label, year = nlcd_year , dataset = nlcd_dataset) 
   
   ## mask to aoi
-  mask_raster_aoi <- raster::mask(raster_aoi, aoi)
+  #mask_raster_aoi <- raster::mask(raster_aoi, aoi)
   
   path <- file.path(out_folder, file_name)
-  out_raster <- writeRaster(mask_raster_aoi, filename = path, format = 'GTiff', overwrite = TRUE)
+  out_raster <- writeRaster(raster_aoi, filename = path, format = 'GTiff', overwrite = TRUE)
   
   return(file.path(out_folder, file_name))
 }
