@@ -19,8 +19,13 @@ p3_targets_list <- list(
   
   ## Map study sites
   tar_target(
-    p3_site_map_svg,
-    map_bloom_sites(p2_param_data_ready)
+    p3_site_map_png,
+    map_bloom_sites(p2_site_metadata_ready,
+                    p1_irb_flowlines,
+                    p1_irb_sf,
+                    out_file = 'data-pipeline/3_visualize/out/IRB_site_map.png'
+                    ),
+  format = 'file'
   )
 
 )
