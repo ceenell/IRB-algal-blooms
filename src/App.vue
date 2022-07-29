@@ -59,8 +59,8 @@
 
 <style lang="scss">
 // Fonts
-@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;300;400;500;600;700;800&display=swap');
-$SourceSans: 'Source Sans Pro', sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Public+Sans:wght@200;300;400;500;600;700;800&display=swap');
+$PublicSans: 'Public Sans', sans-serif;
 
 // Type
 html,
