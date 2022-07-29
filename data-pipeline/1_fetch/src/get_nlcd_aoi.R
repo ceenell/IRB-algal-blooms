@@ -11,5 +11,5 @@ get_nlcd_aoi <- function(aoi, aoi_label = 'drb', nlcd_dataset = 'landcover',
   path <- file.path(out_folder, file_name)
   out_raster <- writeRaster(raster_aoi, filename = path, format = 'GTiff', overwrite = TRUE)
   
-  return(file.path(out_folder, file_name))
+  return(path)
 }
