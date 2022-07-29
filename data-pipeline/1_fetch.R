@@ -17,8 +17,8 @@ p1_targets_list <- list(
   tar_target(p1_irb_flowlines, get_nhdplus(p1_irb_sf)),
   tar_target(p1_irb_states,
              spData::us_states %>%
-               sf::st_crop(p1_irb_sf %>% st_buffer(1000)) %>%
-               st_transform(st_crs(p1_irb_sf))),
+               st_transform(st_crs(p1_irb_sf)) %>%
+               sf::st_crop(p1_irb_sf %>% st_buffer(1000))),
   
   tar_target(p1_param_grps, wq_parameter_groups), # Needs to be a target to use for branching
   tar_target(p1_param_data_downloaded_csvs,
