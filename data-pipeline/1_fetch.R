@@ -36,7 +36,7 @@ p1_targets_list <- list(
                sb_id = wq_data_sbid),
              format = "file"),
   
-  # Get NLCD
+  # Get National Land Cover Database (NLCD) data
   tar_target(
     years_nlcd,
     c('2001', '2004', '2006', '2008', '2011','2016','2019')
