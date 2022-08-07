@@ -1,20 +1,19 @@
 <template>
-  <section>
-    <div class="container">
-      <ilRiver id="il-river-svg" />
-     
-    </div>
+  <section id="water-quality">
+    <div class="image-container" >
+      <img
+      src="@/assets/images/do-and-fchl.png" />
+      </div>
+
   </section>
 </template>
 <script>
 import * as d3Base from 'd3';
 import { store } from '.././store/store.js'
-import ilRiver from '.././assets/images/il-river.svg';
 
 export default {
   name: "WaterQuality",
     components: {
-      ilRiver
     },
     props: {
     bgColor: {
@@ -67,10 +66,13 @@ export default {
 $scriptFont: 'Edu SA Beginner', cursive;
 $SourceSans: 'Source Sans Pro', sans-serif;
 
-#il-river-svg {
-  width: 95%;
-  height: auto;
-  padding-top: 50px;
+.image-container {
+  margin: 2.5%;
+  width: auto;
+  max-height: 100vh;
+  img {
+    max-height: 50vh;
+  }
 
 }
 </style>

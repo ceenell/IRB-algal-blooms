@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section id="algae-community">
     <div class="container">
       <svg id="bloom-bubbles-svg" />
       <button
@@ -19,7 +19,7 @@
 </template>
 <script>
 import * as d3Base from 'd3';
-import { store } from '.././store/store.js'
+import { store } from '../store/store.js'
 import { isMobile } from 'mobile-device-detect';
 
 export default {

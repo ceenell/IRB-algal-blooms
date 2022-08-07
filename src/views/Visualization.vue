@@ -4,16 +4,20 @@
       <h1>Harmful algal blooms</h1>
       <h2>in the Illinois River Basin</h2>
     </div>
+    <ilRiver id="il-river-svg" />
     <WaterQuality />
+    <References />
   </div>
 </template>
 
 <script>
-
+import ilRiver from '.././assets/images/il-river.svg';
 export default {
     name: 'Visualization',
     components: {
-      WaterQuality: () => import( /* webpackPreload: true */ /*webpackChunkName: "section"*/ "./../components/WaterQuality")
+      ilRiver,
+      WaterQuality: () => import( /* webpackPreload: true */ /*webpackChunkName: "section"*/ "./../components/WaterQuality"),
+      References: () => import( /* webpackPreload: true */ /*webpackChunkName: "section"*/ "./../components/References")
     },
     computed: {
     },

@@ -136,5 +136,25 @@ p, text {
   font-family: $SourceSans;
   color: $textcolor;
 }
-
+ .text-content {
+    min-width: 300px;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 10px;   
+    @media screen and (max-width: 600px) {
+        padding: 10px;
+    }  
+  }
+  .flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    align-content: space-around;
+    max-width: 30%;
+    margin: auto;
+    @media screen and (max-width: 600px) {
+        max-width: 100%;
+    }
+  }
 </style>
