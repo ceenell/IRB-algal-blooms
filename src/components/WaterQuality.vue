@@ -68,8 +68,9 @@ $scriptFont: 'Edu SA Beginner', cursive;
 $SourceSans: 'Source Sans Pro', sans-serif;
 
 #il-river-svg {
-  width: 95vw;
+  width: 95%;
   height: auto;
+  padding-top: 50px;
 
 }
 </style>

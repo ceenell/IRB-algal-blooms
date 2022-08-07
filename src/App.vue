@@ -99,14 +99,14 @@ body {
       }
   }
 h1{
-  font-size: 6em;
+  font-size: 5em;
   font-weight: 500;
   font-family: $fontCurly;
   line-height: 1;
   text-align: left;
   color: $textcolor;
   @media screen and (max-width: 600px) {
-    font-size: 4.75em;
+    font-size: 4em;
   }
 }
 h2{
