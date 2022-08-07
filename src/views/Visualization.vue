@@ -1,8 +1,8 @@
 <template>
   <div id="visualization">
     <div id="title-container">
-      <h2>Harmful algal blooms</h2>
-      <h3>in the Illinois River Basin</h3>
+      <h1>Harmful algal blooms</h1>
+      <h2>in the Illinois River Basin</h2>
     </div>
     <WaterQuality />
   </div>
@@ -26,7 +26,7 @@ export default {
 
 <style lang="scss">
 #visualization {
-  height: calc(100vh);
+  height: auto;
   margin: 2.5%;
   //width: 95%;
   //margin-top: 0;

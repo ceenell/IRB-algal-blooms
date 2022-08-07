@@ -2,13 +2,13 @@
   <div id="app">
     <WindowSize v-if="checkTypeOfEnv === '-test build-'" />
     <HeaderUSGS ref="headerUSGS" />
-      <InternetExplorerPage v-if="isInternetExplorer" />
-      <!-- an empty string in this case means the 'prod' version of the application   -->
-      <router-view
-        v-if="!isInternetExplorer"
-      />
-      <PreFooterCodeLinks v-if="!isInternetExplorer" />
-      <FooterUSGS />
+    <InternetExplorerPage v-if="isInternetExplorer" />
+    <!-- an empty string in this case means the 'prod' version of the application   -->
+    <router-view
+      v-if="!isInternetExplorer"
+    />
+    <PreFooterCodeLinks v-if="!isInternetExplorer" />
+    <FooterUSGS />
   </div>
 </template>
 
@@ -73,24 +73,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik+Moonrocks&display=swap');
 $scriptFont: 'Edu SA Beginner', cursive;
 $SourceSans: 'Source Sans Pro', sans-serif;
-$textcolor: #bff1e2;
+$textcolor: #0b3852;
 $fontCurly: 'Rubik Moonrocks', cursive;
 
-// whole page except header fit within viewport - no scrolling
 #app {
   width: 100%;
-  height: calc(100vh + 85.7px); //85.7 is the height of the USGS header
+  //height: calc(100vh + 85.7px); //85.7 is the height of the USGS header
 }
 
 // Type
 html,
 body {
       height: 100%;
-      background-color: #0b3852;
+      background-color: rgb(211, 241, 234);
       margin: 0;
       padding: 0;
       line-height: 1.2;
-      font-size: 16px;
+      font-size: 18px;
       font-weight: 400;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
@@ -100,13 +99,12 @@ body {
       }
   }
 h1{
-  font-size: 4.5em;
+  font-size: 6em;
   font-weight: 500;
   font-family: $fontCurly;
   line-height: 1;
   text-align: left;
-  text-shadow: 1px 1px 100px rgba(0,0,0,.8);
-    color: $textcolor;
+  color: $textcolor;
   @media screen and (max-width: 600px) {
     font-size: 4.75em;
   }
@@ -114,7 +112,7 @@ h1{
 h2{
   font-weight: 700;
   text-align: left;
-  font-family: $fontCurly;
+  font-family: $scriptFont;
   font-size: 3em;
   margin-top: 5px;
   line-height: 1.2;
@@ -138,7 +136,5 @@ p, text {
   font-family: $SourceSans;
   color: $textcolor;
 }
-input[type=button] {
-        font-family: $SourceSans;
-    }
+
 </style>
