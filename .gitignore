@@ -43,6 +43,7 @@ vignettes/*.pdf
 data-pipeline/*/tmp/*
 data-pipeline/*/out/*
 !data-pipeline/*/out/*.placeholder
+!data-pipeline/*/out/nlcd/*.placeholder
 _targets/*
 
 .DS_Store

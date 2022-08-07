@@ -3,8 +3,10 @@
 library(targets)
 
 options(tidyverse.quiet = TRUE)
-tar_option_set(packages = c('ggdist', 'sbtools', 'tidyverse'))
-
+tar_option_set(packages = c('ggdist', 'sbtools', 'tidyverse', 'yaml', 'sf', 
+                            'nhdplusTools', 'FedData', 'raster', 'terra'))
+# get FedData via github: devtools::install_github("ropensci/FedData")
+# 
 source('data-pipeline/1_fetch.R')
 source('data-pipeline/2_process.R')
 source('data-pipeline/3_visualize.R')
