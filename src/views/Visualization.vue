@@ -105,6 +105,7 @@ export default {
   padding: 16px;
   max-width: 1000px;
   margin: auto;
+  margin-top: 5rem;
 }
 /* Add some top padding to the page content to prevent sudden quick movement (as the header gets a new position at the top of the page (position:fixed and top:0) */
 .sticky + .content {

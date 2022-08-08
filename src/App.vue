@@ -125,7 +125,7 @@ h2{
 h3{
   font-size: 1.75em;
   padding-top: .25em;
-  font-family: $scriptFont;
+  font-family: $SourceSans;
   font-weight: 500;
     color: $textcolor;
   @media screen and (max-width: 600px) {
@@ -135,7 +135,7 @@ h3{
 h4{
   font-size: 1.5em;
   padding-top: .25em;
-  font-family: $scriptFont;
+  font-family: $SourceSans;
   font-weight: 500;
     color: $textcolor;
   @media screen and (max-width: 600px) {
