@@ -1,10 +1,23 @@
 <template>
   <section id="water-quality">
-    <div class="image-container" >
-      <img
-      src="@/assets/images/do-and-fchl.png" />
+    <div class="flex-container">
+      <!-- two column layout -->
+      <div class="flex-left">
+        <div class="text-content">
+          <h4>Dissolved Oxygen (DO)</h4>
+          <p>Vestibulum egestas, velit et hendrerit ornare, justo felis porta nulla, non volutpat quam nulla non felis. Vestibulum luctus massa egestas nulla laoreet, non semper elit sodales. Duis facilisis mauris ut malesuada aliquam.</p>
+        </div>
+        <div class="text-content">
+          <h4>Algal Fluorescence (fChl)</h4>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum lacinia ut tellus vel bibendum. Etiam lacinia tortor erat, eget sagittis nisi pulvinar consectetur. Vestibulum egestas, velit et hendrerit ornare, justo felis porta nulla, non volutpat quam nulla non felis.</p>
+        </div>
       </div>
-
+      <div class="flex-right">
+        <img
+          src="@/assets/images/do-and-fchl.png"
+        >
+      </div>
+    </div>
   </section>
 </template>
 <script>
@@ -16,10 +29,6 @@ export default {
     components: {
     },
     props: {
-    bgColor: {
-      type: String,
-      default: "#0099CC"
-    }
     },
     data() {
       return {
@@ -28,8 +37,6 @@ export default {
         store,
 
         // dimensions
-        w: store.state.windowWidth,
-        h: store.state.windowHeight,
         margin: { top: 50, right: 50, bottom: 50, left: 50 },
         svg_chart: null,
         pal : { c1: '#9ED9C6', c2: '#64BFBA', c3: '#3CA8A7', c4: '#498CA6', c5: '#4B6996', c6: '#3B4B7E', c7: '#14C9CB', c8: '#08B3E5', c9: '#0FBED8' },
@@ -46,8 +53,8 @@ export default {
         const self = this;
         // read in data 
         let promises = [
-          self.d3.csv(self.publicPath + "genus_total.csv",  this.d3.autotype),
-          self.d3.csv(self.publicPath + "genus_sample_total.csv",  this.d3.autotype)
+          //self.d3.csv(self.publicPath + "genus_total.csv",  this.d3.autotype),
+          //self.d3.csv(self.publicPath + "genus_sample_total.csv",  this.d3.autotype)
         ];
         Promise.all(promises).then(self.callback); // once it's loaded
         
@@ -66,13 +73,18 @@ export default {
 $scriptFont: 'Edu SA Beginner', cursive;
 $SourceSans: 'Source Sans Pro', sans-serif;
 
-.image-container {
-  margin: 2.5%;
-  width: auto;
-  max-height: 100vh;
-  img {
-    max-height: 50vh;
-  }
-
+.flex-left {
+    width: 50%;
+    max-width: 500px;
+    //height: 100vh;
+    padding: 5%;
 }
+
+.flex-right {
+    width: 50%;
+}
+img {
+    max-height: 70vh;
+    margin: auto;
+  }
 </style>

@@ -1,37 +1,15 @@
 <template>
   <section id="algae-community">
-    <div class="flex-container">
-      <!-- two column layout -->
-      <div class="flex-left">
-        <div class="text-content">
-          <p>Vestibulum egestas, velit et hendrerit ornare, justo felis porta nulla, non volutpat quam nulla non felis. Vestibulum luctus massa egestas nulla laoreet, non semper elit sodales. Duis facilisis mauris ut malesuada aliquam.</p>
-        </div>
-      </div>
-      <div class="flex-right">
-        <algae id="algae-svg" />
-      </div>
-    </div>
-    <div class="flex-container">
-      <img
-        id="algae-biovolume"
-        src="@/assets/images/biovolume_perc_time.png"
-      >
-      <div class="text-content">
-        <p>Relative biovolume of Chrysophyta, Chlorophyta, and Cyanobacteria at Starved Rock in 2021.</p>
-        <h4>What makes an algal bloom harmful?</h4>
-        <p>Vestibulum egestas, velit et hendrerit ornare, justo felis porta nulla, non volutpat quam nulla non felis. Vestibulum luctus massa egestas nulla laoreet, non semper elit sodales. Duis facilisis mauris ut malesuada aliquam.</p>
-      </div>
-    </div>
+    <div class="flex-container" />
   </section>
 </template>
 <script>
 import * as d3Base from 'd3';
 import { store } from '../store/store.js'
-import algae from '.././assets/images/ALGAE.svg';
+
 export default {
   name: "AlgaeCommunity",
     components: {
-      algae
     },
     props: {
     bgColor: {
@@ -89,24 +67,50 @@ export default {
 }
 </script>
 <style scoped lang="scss">
-
-
-.flex-left {
-    width: 50%;
-    max-width: 500px;
-    //height: 100vh;
-    padding: 5%;
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Edu+SA+Beginner:wght@400;500;600;700&display=swap');
+$scriptFont: 'Edu SA Beginner', cursive;
+$SourceSans: 'Source Sans Pro', sans-serif;
+button {
+    appearance: auto;
+    text-rendering: auto;
+    letter-spacing: normal;
+    word-spacing: normal;
+    line-height: normal;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 1rem 4px;
+    margin: 0rem 2.5rem;;
 }
-
-.flex-right {
-    width: 40%;
-    //max-height: 200px;
+.usa-button, .usa-button--inverse {
+  color: #bff1e2;
+  border: white;
+  justify-content: space-evenly;
+  width: 100px;
+  height: auto;
+  border: 2px solid #bff1e2;
+  background: #0b3852;
+  color: #bff1e2;
+  border-radius: 0.35rem;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 2.25rem;
+  font-family: $scriptFont;
+  padding: 0.5rem 0.5rem;
+  text-align: center;
+  text-decoration: none;
+  overflow: visible;
+  @media screen and (max-width: 600px) {
+      font-size: 2em;
+  }  
 }
-#algae-svg {
-  max-height: 250px;
+button:hover {
+    background: #bff1e2;
+    color: #0b3852;
 }
-img {
-    max-height: 40vh;
-    margin: auto;
-  }
+button:active {
+  background-color: #0b3852;
+  color: #bff1e2;
+  transform: translateY(3px) translateX(2px) scale(0.9, 0.9);
+}
 </style>

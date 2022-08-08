@@ -74,6 +74,7 @@
 $scriptFont: 'Edu SA Beginner', cursive;
 $SourceSans: 'Source Sans Pro', sans-serif;
 $textcolor: #0b3852;
+$linkColor:rgb(1, 141, 106)2;
 $fontCurly: 'Rubik Moonrocks', cursive;
 
 #app {
@@ -85,7 +86,7 @@ $fontCurly: 'Rubik Moonrocks', cursive;
 html,
 body {
       height: 100%;
-      background-color: rgb(211, 241, 234);
+      background-color: rgb(233, 245, 238);
       margin: 0;
       padding: 0;
       line-height: 1.2;
@@ -99,7 +100,7 @@ body {
       }
   }
 h1{
-  font-size: 5em;
+  font-size: 4.5em;
   font-weight: 500;
   font-family: $fontCurly;
   line-height: 1;
@@ -110,7 +111,7 @@ h1{
   }
 }
 h2{
-  font-weight: 700;
+  font-weight: 500;
   text-align: left;
   font-family: $scriptFont;
   font-size: 3em;
@@ -122,10 +123,20 @@ h2{
   }
 }
 h3{
-  font-size: 2.25em;
+  font-size: 1.75em;
   padding-top: .25em;
   font-family: $scriptFont;
-  font-weight: 300;
+  font-weight: 500;
+    color: $textcolor;
+  @media screen and (max-width: 600px) {
+      font-size: 1.5em;
+  }  
+}
+h4{
+  font-size: 1.5em;
+  padding-top: .25em;
+  font-family: $scriptFont;
+  font-weight: 500;
     color: $textcolor;
   @media screen and (max-width: 600px) {
       font-size: 2em;
@@ -145,16 +156,68 @@ p, text {
         padding: 10px;
     }  
   }
-  .flex-container {
+    .flex-container {
     display: flex;
     flex-wrap: wrap;
     align-items: flex-start;
     justify-content: space-evenly;
     align-content: space-around;
-    max-width: 30%;
+    max-width: 100%;
     margin: auto;
     @media screen and (max-width: 600px) {
         max-width: 100%;
     }
   }
+  .flex-item {
+    padding: 20px;
+    min-width: 400px;
+    flex: 0 0 auto;
+    align-self: center;
+  }
+  @media (max-width: 600px) {
+    .flex-container {
+      flex-direction: column;
+    }
+    .flex-item {
+      flex: none;
+      padding: 0 0 1em 0;
+      height: 100%;
+    }
+  }
+  .figure-content {
+    border: 1px white;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    align-content: space-around;
+    max-width: 100%;
+    // padding: 0 100px;
+    margin: auto;
+    @media screen and (max-width: 600px) {
+        padding: 0px; 
+    }
+  }
+
+  // Link Styling
+a:link { 
+  text-decoration: underline;
+  //font-weight: bold;
+  color: $linkColor;
+  padding: 5px 0;
+} 
+a:visited { 
+  color: $linkColor; 
+} 
+a:hover {
+  text-decoration:none;
+  text-shadow: 0 0 2px lightGrey;  
+  cursor: pointer;
+} 
+a:focus { 
+    text-shadow: 0 0 2px lightGrey;
+}
+a:active {
+  padding-top: 3px;
+}
 </style>
