@@ -1,13 +1,8 @@
 <template>
   <section id="algae-community">
     <div class="flex-container">
-      <!-- two column layout -->
-      <div class="flex-left">
-        <div class="text-content">
-          <p>Vestibulum egestas, velit et hendrerit ornare, justo felis porta nulla, non volutpat quam nulla non felis. Vestibulum luctus massa egestas nulla laoreet, non semper elit sodales. Duis facilisis mauris ut malesuada aliquam.</p>
-        </div>
-      </div>
-      <div class="flex-right">
+      <div class="text-content">
+        <p>Vestibulum egestas, velit et hendrerit ornare, justo felis porta nulla, non volutpat quam nulla non felis. Vestibulum luctus massa egestas nulla laoreet, non semper elit sodales. Duis facilisis mauris ut malesuada aliquam.</p>
         <algae id="algae-svg" />
       </div>
     </div>
@@ -90,23 +85,15 @@ export default {
 </script>
 <style scoped lang="scss">
 
-
-.flex-left {
-    width: 50%;
-    max-width: 500px;
-    //height: 100vh;
-    padding: 5%;
-}
-
-.flex-right {
-    width: 40%;
-    //max-height: 200px;
-}
 #algae-svg {
-  max-height: 250px;
+  max-height: 100px;
+  margin: auto;
+  margin-top: 30px;
 }
 img {
     max-height: 40vh;
+    width: auto;
+    max-width: 1200px;
     margin: auto;
   }
 </style>

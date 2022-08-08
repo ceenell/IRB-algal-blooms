@@ -41,6 +41,7 @@
       </div>
     </div>
     <RemoteSensing />
+    <ImgCarousel id="carousel" />
     <References />
   </div>
 </template>
@@ -54,6 +55,7 @@ export default {
       WaterQuality: () => import( /* webpackPreload: true */ /*webpackChunkName: "section"*/ "./../components/WaterQuality"),
       AlgalCommunity: () => import( /* webpackPreload: true */ /*webpackChunkName: "section"*/ "./../components/AlgaeCommunity"),
       RemoteSensing: () => import( /* webpackPreload: true */ /*webpackChunkName: "section"*/ "./../components/RemoteSensing"),
+      ImgCarousel: () => import( /* webpackPreload: true */ /*webpackChunkName: "section"*/ "./../components/ImgCarousel"),
       References: () => import( /* webpackPreload: true */ /*webpackChunkName: "section"*/ "./../components/References")
     },
     computed: {
@@ -93,6 +95,10 @@ export default {
 }
 #nav-text {
   margin-bottom: 30px;
+}
+#carousel {
+  max-width: 1200px;
+  margin:auto;
 }
 .sticky {
   position: fixed;

@@ -1,6 +1,10 @@
 <template>
   <section id="algae-community">
-    <div class="flex-container" />
+    <div class="flex-container" >
+     <div class="text-content">
+        <p>Vestibulum egestas, velit et hendrerit ornare, justo felis porta nulla, non volutpat quam nulla non felis. Vestibulum luctus massa egestas nulla laoreet, non semper elit sodales. Duis facilisis mauris ut malesuada aliquam.</p>
+      </div>
+      </div>
   </section>
 </template>
 <script>
