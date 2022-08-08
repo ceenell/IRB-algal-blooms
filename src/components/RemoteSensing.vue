@@ -50,13 +50,7 @@ export default {
           },
        loadData() {
         const self = this;
-        // read in data 
-        let promises = [
-          self.d3.csv(self.publicPath + "genus_total.csv",  this.d3.autotype),
-          self.d3.csv(self.publicPath + "genus_sample_total.csv",  this.d3.autotype)
-        ];
-        Promise.all(promises).then(self.callback); // once it's loaded
-        
+        // read in data here
       },
       callback(data) {
         const self = this;
