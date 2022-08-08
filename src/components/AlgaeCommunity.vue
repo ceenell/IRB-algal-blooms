@@ -92,7 +92,7 @@ export default {
 }
 img {
     max-height: 40vh;
-    width: auto;
+    width: 90vw;;
     max-width: 1200px;
     margin: auto;
   }

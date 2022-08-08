@@ -39,10 +39,15 @@
       <div class="title-container">
         <h3>Remote Sensing</h3>
       </div>
-    </div>
     <RemoteSensing />
     <ImgCarousel id="carousel" />
+        </div>
+        <div
+      id="remote-sensing"
+      class="content"
+    >
     <References />
+   </div>
   </div>
 </template>
 
@@ -111,7 +116,10 @@ export default {
   padding: 16px;
   max-width: 1000px;
   margin: auto;
-  margin-top: 5rem;
+  //margin-top: 5rem;
+}
+.content{
+  margin-bottom: 5rem;
 }
 /* Add some top padding to the page content to prevent sudden quick movement (as the header gets a new position at the top of the page (position:fixed and top:0) */
 .sticky + .content {
