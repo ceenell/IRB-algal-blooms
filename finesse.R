@@ -47,7 +47,7 @@ p_fchl <- ggplot(data = fchl_data) +
   # Copy this same styling to the DO plot
   # ggdist::geom_lineribbon(aes(ymin = minimum_result, ymax = maximum_result,
   #                             color = site_label, fill = site_label), alpha=0.25) +
-  geom_line(aes(x = date, y = mean_result, color = site_label), size = 1) +
+  ggalt::geom_xspline(aes(x = date, y = mean_result, color = site_label), size = 1, spline_shape = -0.5) +
   scale_color_manual(values = c("#506992", "#5FB5D1", "#ABD7C8"),
                      breaks = c("Henry", "Starved Rock", "Seneca")) +
   # scale_fill_manual(values = c("#506992", "#5FB5D1", "#ABD7C8"),
@@ -79,7 +79,7 @@ p_do <- ggplot(do_data) +
   # Except for turning off the x-axis labels
   # ggdist::geom_lineribbon(aes(ymin = minimum_result, ymax = maximum_result,
   #                             color = site_label, fill = site_label), alpha=0.25) +
-  geom_line(aes(x = date, y = mean_result, color = site_label), size = 1) +
+  ggalt::geom_xspline(aes(x = date, y = mean_result, color = site_label), size = 1, spline_shape = -0.5) +
   scale_color_manual(values = c("#506992", "#5FB5D1", "#ABD7C8"),
                      breaks = c("Henry", "Starved Rock", "Seneca")) +
   # scale_fill_manual(values = c("#506992", "#5FB5D1", "#ABD7C8"),
