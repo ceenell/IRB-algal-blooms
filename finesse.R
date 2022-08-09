@@ -57,7 +57,7 @@ p_fchl <- ggplot(data = fchl_data) +
         panel.border = element_blank(),
         panel.grid.major.x = element_blank(),
         panel.grid.minor.x = element_blank(),
-        plot.margin = margin(0.5,2.5,0.25,0.25, 'cm'),
+        plot.margin = margin(1.5,2.5,0.25,0.25, 'cm'),
         axis.title = element_blank(),
         axis.text.x = element_text(face = 'bold', color = '#bdb9b9'),
         axis.text.y = element_text(face = 'bold', color = '#bdb9b9', vjust=0.3, hjust=1),
@@ -92,7 +92,7 @@ p_do <- ggplot(do_data) +
         panel.grid.minor.x = element_blank(),
         plot.margin = margin(0.5,2.5,0.25,0.25, 'cm'),
         axis.title = element_blank(),
-        axis.text.x = element_blank(),
+        axis.text.x = element_text(face = 'bold', color = '#bdb9b9'),
         axis.text.y = element_text(face = 'bold', color = '#bdb9b9', vjust=0.3,hjust=1),
         axis.ticks = element_blank()) +
   coord_cartesian(clip = 'off') +
@@ -100,4 +100,7 @@ p_do <- ggplot(do_data) +
   ylim(c(min(do_data$minimum_result), max(do_data$maximum_result)))
 
 p_combined <- cowplot::plot_grid(p_do, p_fchl, nrow=2)
-ggsave('habs_fancy_ts.png', p_combined, width = 15, height = 8)
+ggsave('habs_fancy_ts.png', p_combined, width = 10, height = 12)
+
+ggsave('habs_fancy_ts_fchl.png', p_fchl, width = 10, height = 6)
+ggsave('habs_fancy_ts_do.png', p_do, width = 10, height = 6)
