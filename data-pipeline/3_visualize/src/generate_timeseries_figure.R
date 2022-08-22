@@ -16,13 +16,13 @@ generate_line_ts_figure <- function(file_out, data_in, plot_label = 'Mean daily 
     mutate(alpha_val = ifelse(alpha_val > 1, 2 - alpha_val, alpha_val))
 
   p <- ggplot(data = data_in) +
-    geom_text(data = data_last, aes(x = date, y = mean_result, label = site_label, color = site_label),
+    geom_text(data = data_last, aes(x = date, y = plot_value, label = site_label, color = site_label),
               fontface ="bold", hjust = 0, nudge_x = 0.5) +
     geom_text(x = min(data_in$date), y = 107, label = plot_label, color = '#918b8b', size = 5, hjust = 0.10) +
     geom_rect(data = gradient_rect, aes(xmin = xleft, xmax = xright, alpha = alpha_val),
               ymin = -Inf, ymax = Inf,
               fill = '#dedcdc') +
-    ggalt::geom_xspline(aes(x = date, y = mean_result, color = site_label), size = 1, spline_shape = -0.5) +
+    ggalt::geom_xspline(aes(x = date, y = plot_value, color = site_label), size = 1, spline_shape = -0.5) +
     scale_color_manual(values = color_vals,
                        breaks = color_val_labels) +
     theme_bw() +
