@@ -3,20 +3,25 @@ source('data-pipeline/3_visualize/src/generate_timeseries_figure.R')
 source('data-pipeline/3_visualize/src/map_sites.R')
 
 p3_targets_list <- list(
-  
+
+  tar_target(p3_plot_site_labels,
+             tibble(site_no = c("05558300", "05553700", "05543010"),
+                    site_label = c("Henry", "Starved Rock", "Seneca"))),
+  tar_target(p3_param_data_to_plot,
+             p2_param_data_ready %>%
+               filter(param_grp %in% c("DO", "fPC", "pH", "temp_water")) %>%
+               left_join(p3_plot_site_labels, by = "site_no") %>%
+               group_by(param_grp) %>%
+               tar_group(),
+             iteration = "group"),
+
   ## Create timeseries charts of multiple WQ params
   tar_target(p3_line_ts_facet_png,
              generate_line_ts_figure(
-               file_out = sprintf('data-pipeline/3_visualize/out/line_ts_facet.png'),
-               data_in = p2_param_data_ready
-             ), format = "file"),
+               file_out = sprintf('data-pipeline/3_visualize/out/line_ts_%s.png', unique(p3_param_data_to_plot$param_grp)),
+               data_in = p3_param_data_to_plot
+             ), format = "file", pattern = map(p3_param_data_to_plot)),
 
-  tar_target(p3_dist_ts_facet_png,
-             generate_dist_ts_figure(
-               file_out = sprintf('data-pipeline/3_visualize/out/dist_ts_facet.png'),
-               data_in = p2_param_data_ready
-             ), format = "file"),
-  
   ## Map study sites
   tar_target(
     p3_site_map_png,
