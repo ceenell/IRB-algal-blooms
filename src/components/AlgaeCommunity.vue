@@ -1,10 +1,9 @@
 <template>
   <section id="algae-community">
     <div class="flex-container">
-      <div class="text-content">
-        <p>Vestibulum egestas, velit et hendrerit ornare, justo felis porta nulla, non volutpat quam nulla non felis. Vestibulum luctus massa egestas nulla laoreet, non semper elit sodales. Duis facilisis mauris ut malesuada aliquam.</p>
-        <algae id="algae-svg" />
-      </div>
+      <!-- <div class="text-content">
+        <p>During an algal bloom, algal community composition changes and may become dominated by certain taxa.</p>
+      </div> -->
     </div>
     <div class="flex-container">
       <img
@@ -22,11 +21,10 @@
 <script>
 import * as d3Base from 'd3';
 import { store } from '../store/store.js'
-import algae from '.././assets/images/ALGAE.svg';
 export default {
   name: "AlgaeCommunity",
     components: {
-      algae
+
     },
     props: {
     bgColor: {
@@ -85,15 +83,12 @@ export default {
 </script>
 <style scoped lang="scss">
 
-#algae-svg {
-  max-height: 100px;
-  margin: auto;
-  margin-top: 30px;
-}
+
 img {
-    max-height: 40vh;
-    width: 90vw;;
-    max-width: 1200px;
+    height: auto;
+    max-height: 50vh;
+    width: 90vw;
+    max-width: 1400px;
     margin: auto;
   }
 </style>

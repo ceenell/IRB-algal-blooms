@@ -73,8 +73,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik+Moonrocks&display=swap');
 $scriptFont: 'Edu SA Beginner', cursive;
 $SourceSans: 'Source Sans Pro', sans-serif;
-$textcolor: #0b3852;
-$linkColor:rgb(1, 141, 106)2;
+$textcolor: white;
+$linkColor:rgb(242, 255, 172);
 $fontCurly: 'Rubik Moonrocks', cursive;
 
 #app {
@@ -86,7 +86,8 @@ $fontCurly: 'Rubik Moonrocks', cursive;
 html,
 body {
       height: 100%;
-      background-color: rgb(233, 245, 238);
+      //background-color: rgb(233, 245, 238);
+      background-color:#2b4b52;
       margin: 0;
       padding: 0;
       line-height: 1.2;
@@ -101,8 +102,8 @@ body {
   }
 h1{
   font-size: 4.5em;
-  font-weight: 500;
-  font-family: $fontCurly;
+  font-weight: 600;
+  font-family: $SourceSans;
   line-height: 1;
   text-align: left;
   color: $textcolor;
@@ -126,7 +127,7 @@ h3{
   font-size: 1.75em;
   padding-top: .25em;
   font-family: $SourceSans;
-  font-weight: 500;
+  font-weight: 700;
     color: $textcolor;
   @media screen and (max-width: 600px) {
       font-size: 1.5em;
@@ -136,10 +137,10 @@ h4{
   font-size: 1.5em;
   padding-top: .25em;
   font-family: $SourceSans;
-  font-weight: 500;
+  font-weight: 700;
     color: $textcolor;
   @media screen and (max-width: 600px) {
-      font-size: 2em;
+      font-size: 1.5em;
   }  
 }
 p, text {

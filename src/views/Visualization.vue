@@ -4,16 +4,20 @@
       <h1>Harmful algal blooms</h1>
       <h2>in the Illinois River Basin</h2>
     </div>
+    <div class="title-container">
+        <AlgalCommunity />
+      </div>
     <div class="text-content">
       <p>Algal blooms are becoming increasingly common in the Illinois River Basin due to the imapcts of urban and agriculture on water quality. To better predict the timing, magnitude, and toxicity of harmful algal blooms (HABs) USGS is monitoring water quality and algal communities through large-scale sampling efforts and remote sensing.</p>
     </div>
     <!--     sticks to top of page as scrolling through different sections -->
-    <div id="nav-menu">
-      <h3 id="nav-text">
+  <!--   <div id="nav-menu"> -->
+  <!--              <h4 id="nav-text">
         continuous water quality | algae and toxins | remote sensing
-      </h3>
-      <ilRiver id="il-river-svg" />
-    </div>
+      </h4> -->
+         <ilRiver id="il-river-svg" />
+<!--     </div> -->
+  
     <div
       id="cont-water-quality"
       class="content"
@@ -27,10 +31,6 @@
       id="algae-toxins"
       class="content"
     >
-      <div class="title-container">
-        <h3>Algae and toxins</h3>
-        <AlgalCommunity />
-      </div>
     </div>
     <div
       id="remote-sensing"
@@ -52,7 +52,7 @@
 </template>
 
 <script>
-import ilRiver from '.././assets/images/il-river.svg';
+import ilRiver from '.././assets/images/IllinoisRiver_stations_header.svg';
 export default {
     name: 'Visualization',
     components: {
@@ -65,7 +65,7 @@ export default {
     },
     computed: {
     },
-    mounted(){
+    /* mounted(){
       // sticky header
       window.onscroll = function() {myFunction()};
       var header = document.getElementById("nav-menu"); // Get the header
@@ -80,7 +80,7 @@ export default {
       }
 
 
-    },
+    }, */
     methods:{
     }
 } 
@@ -92,11 +92,12 @@ export default {
   margin: 5%;
   //width: 95%;
   //margin-top: 0;
-
+//background-color:#102f36
 }
 #nav-menu {
-  background-color: rgb(233, 245, 238);
+  //background-color: rgb(185, 227, 255);
   text-align: center;
+  padding-top: 20px;
 }
 #nav-text {
   margin-bottom: 30px;
@@ -109,9 +110,10 @@ export default {
   position: fixed;
   top: 0;
   left:0;
-  width: 100%;
+  width: 100vw;
 }
 /* Page content */
+
 .content, #title-container {
   padding: 16px;
   max-width: 1000px;
@@ -127,8 +129,13 @@ export default {
 }
 #il-river-svg {
   //margin-top: 20px;
-  max-height: 170px;
+  width: 100vw;
+  height: auto;
+  //max-height: 60vh;
   margin: auto;
+  margin-left: -5vw;
+  position: relative;
+  top: -150px; // should be a little less than the height of the USGS header and title calc()
 }
 
 </style>
