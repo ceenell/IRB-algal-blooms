@@ -8,6 +8,13 @@ p3_targets_list <- list(
              tibble(site_no = c("05558300", "05553700", "05543010"),
                     site_label = c("Henry", "Starved Rock", "Seneca"))),
 
+  tar_target(p3_plot_labels,
+            tibble(param_grp = c('fPC', 'DO', 'pH', 'temp_water'),
+                   plot_label = c("Phycocyanin fluorescence, ug/l",
+                                  "Dissolved oxygen, mg/l",
+                                  "pH",
+                                  "Water temperature, degrees Celcius"))),
+
   # Identify plot axes per param group so that bloom and nonbloom
   # plots share the same axis.
   tar_target(p3_plot_axes_info,
@@ -25,6 +32,8 @@ p3_targets_list <- list(
   # Plot the figures around the bloom dates for each parameter group
   tar_target(p3_param_data_to_plot_bloom,
              p2_param_data_bloom %>%
+               # Add in any info needed in the plot that should be mapped over
+               left_join(p3_plot_labels, by = "param_grp") %>%
                left_join(p3_plot_site_labels, by = "site_no") %>%
                left_join(p3_plot_axes_info, by = "param_grp") %>%
                group_by(param_grp) %>%
@@ -41,6 +50,8 @@ p3_targets_list <- list(
   # Plot the figures around the dates where no bloom occurred for each parameter group
   tar_target(p3_param_data_to_plot_nonbloom,
              p2_param_data_nonbloom %>%
+               # Add in any info needed in the plot that should be mapped over
+               left_join(p3_plot_labels, by = "param_grp") %>%
                left_join(p3_plot_site_labels, by = "site_no") %>%
                left_join(p3_plot_axes_info, by = "param_grp") %>%
                group_by(param_grp) %>%
