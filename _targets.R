@@ -18,7 +18,7 @@ wq_data_sbid <- '62abf202d34e74f0d80eb611'
 
 # Based on the parameter groups defined in the `pcode_groups_xwalk.csv` file
 # from the data release at
-wq_parameter_groups <- c('chl_a', 'fPC', 'fchl', 'DO', 'pH', 'temp_water')
+wq_parameter_groups <- c('fPC', 'DO', 'pH', 'temp_water')
 
 # Define site numbers that we want to use. Must be sites already available in
 # the `site_metadata.csv` file from the SB item
@@ -29,9 +29,10 @@ sites_to_explore <- c(
 )
 
 # Define the start and end dates of interest
-# TODO: WAS GOING TO DO 2021 DATES BUT OUR DATA RELEASE DOESN'T INCLUDE THOSE
-start_date <- '2020-06-01'
-end_date <- '2020-07-10'
+bloom_start_date <- '2020-06-01'
+bloom_end_date <- '2020-07-10'
+nonbloom_start_date <- '2019-06-01'
+nonbloom_end_date <- '2019-07-10'
 
 ##### SB AUTHENTICATION #####
 # TODO: DELETE ME. Currently, this SB item is internal only.

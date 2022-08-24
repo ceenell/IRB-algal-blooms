@@ -1,6 +1,8 @@
 
-generate_line_ts_figure <- function(file_out, data_in, plot_label = 'Mean daily algal fluorescence, ug/L', bloom_date = as.Date('2021-06-20'),
-                                    color_vals = c("#506992", "#5FB5D1", "#ABD7C8"), color_val_labels = c("Henry", "Starved Rock", "Seneca")) {
+generate_line_ts_figure <- function(file_out, data_in,
+                                    bloom_date = as.Date('2020-06-20'),
+                                    color_vals = c("#506992", "#5FB5D1", "#ABD7C8"),
+                                    color_val_labels = c("Henry", "Starved Rock", "Seneca")) {
 
   # Need to use final dates to position site labels
   data_last <- data_in %>% filter(date == max(date))
@@ -18,7 +20,9 @@ generate_line_ts_figure <- function(file_out, data_in, plot_label = 'Mean daily 
   p <- ggplot(data = data_in) +
     geom_text(data = data_last, aes(x = date, y = plot_value, label = site_label, color = site_label),
               fontface ="bold", hjust = 0, nudge_x = 0.5) +
-    geom_text(x = min(data_in$date), y = 107, label = plot_label, color = '#918b8b', size = 5, hjust = 0.10) +
+    geom_text(x = min(data_in$date), y = unique(data_in$max_axis_val),
+              label = unique(data_in$plot_label),
+              color = '#918b8b', size = 5, hjust = 0.10) +
     geom_rect(data = gradient_rect, aes(xmin = xleft, xmax = xright, alpha = alpha_val),
               ymin = -Inf, ymax = Inf,
               fill = '#dedcdc') +
@@ -37,7 +41,7 @@ generate_line_ts_figure <- function(file_out, data_in, plot_label = 'Mean daily 
           axis.ticks = element_blank()) +
     coord_cartesian(clip = 'off') +
     xlim(c(min(data_in$date), max(data_in$date) + 1)) +
-    ylim(c(min(data_in$minimum_result), max(data_in$maximum_result)))
+    ylim(c(unique(data_in$min_axis_val), unique(data_in$max_axis_val)))
 
   ggsave(file_out, p, width = 10, height = 6)
 
