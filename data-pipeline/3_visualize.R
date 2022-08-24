@@ -9,7 +9,6 @@ p3_targets_list <- list(
                     site_label = c("Henry", "Starved Rock", "Seneca"))),
   tar_target(p3_param_data_to_plot,
              p2_param_data_ready %>%
-               filter(param_grp %in% c("DO", "fPC", "pH", "temp_water")) %>%
                left_join(p3_plot_site_labels, by = "site_no") %>%
                group_by(param_grp) %>%
                tar_group(),

@@ -18,7 +18,7 @@ wq_data_sbid <- '62abf202d34e74f0d80eb611'
 
 # Based on the parameter groups defined in the `pcode_groups_xwalk.csv` file
 # from the data release at
-wq_parameter_groups <- c('chl_a', 'fPC', 'fchl', 'DO', 'pH', 'temp_water')
+wq_parameter_groups <- c('fPC', 'DO', 'pH', 'temp_water')
 
 # Define site numbers that we want to use. Must be sites already available in
 # the `site_metadata.csv` file from the SB item
