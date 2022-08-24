@@ -29,9 +29,10 @@ sites_to_explore <- c(
 )
 
 # Define the start and end dates of interest
-# TODO: WAS GOING TO DO 2021 DATES BUT OUR DATA RELEASE DOESN'T INCLUDE THOSE
-start_date <- '2020-06-01'
-end_date <- '2020-07-10'
+bloom_start_date <- '2020-06-01'
+bloom_end_date <- '2020-07-10'
+nonbloom_start_date <- '2019-06-01'
+nonbloom_end_date <- '2019-07-10'
 
 ##### SB AUTHENTICATION #####
 # TODO: DELETE ME. Currently, this SB item is internal only.

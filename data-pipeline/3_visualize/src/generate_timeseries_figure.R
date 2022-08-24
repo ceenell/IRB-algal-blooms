@@ -37,7 +37,7 @@ generate_line_ts_figure <- function(file_out, data_in, plot_label = 'Mean daily 
           axis.ticks = element_blank()) +
     coord_cartesian(clip = 'off') +
     xlim(c(min(data_in$date), max(data_in$date) + 1)) +
-    ylim(c(min(data_in$minimum_result), max(data_in$maximum_result)))
+    ylim(c(unique(data_in$min_axis_val), unique(data_in$max_axis_val)))
 
   ggsave(file_out, p, width = 10, height = 6)
 
