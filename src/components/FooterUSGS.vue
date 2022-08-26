@@ -165,7 +165,7 @@
     content: none;
   }
   footer.footer {
-    background: white;
+    background: #0b3852;
     padding-bottom: 0;
     position: relative;
     width: 100%;
@@ -178,7 +178,7 @@
 
   footer.footer .footer-doi ul.menu li a {
     padding: 5px 0;
-    color: black;
+    color: white;
     float: left;
     font-size: 12px;
   }
@@ -208,12 +208,12 @@
 
   footer.footer .footer-wrap .menu.nav a {
     padding: 4px 0;
-    color: black;
+    color: white;
     font-size: 12px;
   }
 
   footer.footer .footer-social-links {
-    color: black;
+    color: white;
     font-size: 12px;
     padding-right: 0;
   }
@@ -247,14 +247,14 @@
     font-family: 'Source Sans Pro',sans-serif;
     font-size: 14px;
     line-height: 1.42857;
-    color: black;
-    background-color: black;
+    color: white;
+    background-color: white;
     padding-left: 15px;
     padding-right: 15px;
   }
 
   .svg-inline--fa {
-    color: black;
+    color: white;
     text-decoration: none;
     height: 24px;
     width: 21px;

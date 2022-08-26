@@ -29,7 +29,7 @@
     display: flex;
     justify-content: right;
     width: 100%;
-    background-color: #c2c4c5;
+    background-color: white;
     margin: 0 auto;
     padding: 0.4rem;
     border-bottom: 2px solid black;
