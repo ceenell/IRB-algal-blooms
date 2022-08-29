@@ -73,6 +73,20 @@ p3_targets_list <- list(
                     out_file = 'data-pipeline/3_visualize/out/IRB_site_map.png'
                     ),
   format = 'file'
+  ),
+
+  ## SVG TEST ZONE
+  tar_target(
+    p_svg, {
+      p_fn <- 'p.svg'
+      example_dat <- tibble(day = c(1:3,2:4),
+                            value = c(5,7,2, 1,4.5,5.3),
+                            group = c(rep('site1', 3), rep('site2', 3)))
+      p <- ggplot(example_dat, aes(x = day, y = value, color = group)) +
+        geom_line()
+      ggsave(p_fn, p, width=1000, height=500, units='px')
+      return(p_fn)
+    }, format = 'file'
   )
 
 )
