@@ -84,7 +84,7 @@ p3_targets_list <- list(
                             group = c(rep('site1', 3), rep('site2', 3)))
       p <- ggplot(example_dat, aes(x = day, y = value, color = group)) +
         geom_line()
-      ggsave(p_fn, p, width=10, height=5, units='in')
+      ggsave(p_fn, p, width=1000, height=500, units='px')
       return(p_fn)
     }, format = 'file'
   )
