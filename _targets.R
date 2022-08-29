@@ -3,10 +3,10 @@
 library(targets)
 
 options(tidyverse.quiet = TRUE)
-tar_option_set(packages = c('ggdist', 'sbtools', 'tidyverse', 'yaml', 'sf', 
+tar_option_set(packages = c('ggdist', 'sbtools', 'tidyverse', 'yaml', 'sf',
                             'nhdplusTools', 'FedData', 'raster', 'terra'))
 # get FedData via github: devtools::install_github("ropensci/FedData")
-# 
+#
 source('data-pipeline/1_fetch.R')
 source('data-pipeline/2_process.R')
 source('data-pipeline/3_visualize.R')
@@ -18,7 +18,7 @@ wq_data_sbid <- '62abf202d34e74f0d80eb611'
 
 # Based on the parameter groups defined in the `pcode_groups_xwalk.csv` file
 # from the data release at
-wq_parameter_groups <- c('chl_a', 'fPC', 'fchl', 'DO', 'pH')
+wq_parameter_groups <- c('fPC', 'DO', 'pH', 'temp_water')
 
 # Define site numbers that we want to use. Must be sites already available in
 # the `site_metadata.csv` file from the SB item
@@ -29,8 +29,10 @@ sites_to_explore <- c(
 )
 
 # Define the start and end dates of interest
-start_date <- '2020-06-15'
-end_date <- '2020-07-05'
+bloom_start_date <- '2020-06-01'
+bloom_end_date <- '2020-07-10'
+nonbloom_start_date <- '2019-06-01'
+nonbloom_end_date <- '2019-07-10'
 
 ##### SB AUTHENTICATION #####
 # TODO: DELETE ME. Currently, this SB item is internal only.
